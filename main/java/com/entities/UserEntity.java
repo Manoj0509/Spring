@@ -1,0 +1,65 @@
+package com.entities;
+
+import javax.persistence.*;
+
+@Entity
+@SequenceGenerator(name = "usersequence",initialValue = 001)
+@Table(name = "users")
+public class UserEntity {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator = "usersequence")
+	private Long id;
+	@Column(name = "username")
+	private String username;
+	@Column(name = "password")
+	private String password;
+	
+	public UserEntity() {
+		super();
+	}
+	
+	public UserEntity(Long id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public UserEntity(long id, String password) {
+		this.id = id;
+		this.password = password;
+	}
+
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long userid) {
+		this.id = userid;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		return "UserEntity [userid=" + id + ", username=" + username + ", password=" + password + "]";
+	}
+	
+	
+
+}
